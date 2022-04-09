@@ -1,0 +1,24 @@
+service:
+ name: odaStudio
+
+plugins:
+ - serverless-plugin-typescript
+ - serverless-plugin-optimize
+ - serverless-offline
+ - serverless-dotenv-plugin
+provider:
+ name: aws
+ runtime: nodejs12.x
+ stage: ${opt:stage}
+
+custom:
+ dotenv:
+  path: src/resources/application-${opt:stage}.properties
+
+functions:
+ main: 
+   handler: src/main/lambda.handler
+   events:
+     - http:
+         method: any
+         path: /{any+}
