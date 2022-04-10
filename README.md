@@ -7,6 +7,8 @@ $ npm install
 
 ## Running the app
 
+firstly before the starting application , you should configure db under the src/resources/applicatin-${stage}.properties
+
 ```bash
 # development
 $ npm run start
